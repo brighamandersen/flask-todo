@@ -1,0 +1,22 @@
+html {
+  padding: 10px;
+}
+
+.a-no-underline {
+  text-decoration: none;
+  color: black;
+}
+
+.todo-add {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.todo-item {
+  padding: 10px;
+  font-size: x-large;
+}
+
+.todo-check {
+  margin-inline: 10px;
+}
