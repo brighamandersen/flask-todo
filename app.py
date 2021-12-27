@@ -6,7 +6,9 @@ app = Flask(__name__)
 # database
 
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = True
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:////Coding/flask/flask-todo/app.db"
+app.config[
+    "SQLALCHEMY_DATABASE_URI"
+] = r"sqlite:///C:\users\brig\Code\flask-todo\app.db"
 
 db = SQLAlchemy(app)
 
