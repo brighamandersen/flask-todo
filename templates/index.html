@@ -21,7 +21,7 @@
     	{% for todo in todos %}
       <div class="todo-item">
         <form action="{{ url_for("update", id=todo.id) }}">
-          <input type="checkbox" class="todo-check" onchange="this.form.submit()" />
+          <input type="checkbox" class="todo-check" onchange="this.form.submit()" {{ "checked" if todo.complete }} />
           {% if todo.complete %}
           <del>{{ todo.content }}</del>
           {% else %}
