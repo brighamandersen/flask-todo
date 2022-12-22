@@ -4,6 +4,7 @@
 
 input {
   font-size: x-large;
+  padding: 0.5rem;
 }
 
 html {
@@ -13,6 +14,14 @@ html {
 .a-no-underline {
   text-decoration: none;
   color: black;
+}
+
+.button {
+  text-decoration: none;
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 0.5rem;
 }
 
 .todo-add {
