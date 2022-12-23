@@ -2,7 +2,7 @@
   font-family: 'Courier New', Courier, monospace;
 }
 
-input {
+input[type='text'] {
   font-size: x-large;
   padding: 0.5rem;
   border: none;
@@ -34,7 +34,11 @@ html {
 
 /* Make close icon red when you hover anywhere on the item */
 .todo-item:hover .close-icon {
-  color: red;
+  color: rgb(255, 106, 106);
+}
+
+.close-icon:hover {
+  font-weight: 900;
 }
 
 /* Show if tabbed to a transparent icon via keyboard */
@@ -51,16 +55,17 @@ html {
 }
 
 .todo-add {
-  padding: 2rem 0;
+  padding-bottom: 2rem;
+  position: sticky;
+}
+
+.input-container * {
+  width: 100%;
 }
 
 .todo-item {
   padding: 10px;
   font-size: x-large;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .todo-form {
@@ -71,9 +76,17 @@ html {
   border: none;
 }
 
-.todo-item:hover {
+.todo-item:hover,
+input[type='text']:hover,
+input[type='checkbox']:hover {
   background-color: #efefef;
-  border-radius: 8px;
+}
+
+.parent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .left,
@@ -83,12 +96,11 @@ html {
 }
 
 .left {
-  flex: 4;
+  flex-grow: 1;
   justify-content: flex-start;
 }
 
 .right {
-  flex: 1;
   justify-content: flex-end;
 }
 
@@ -98,4 +110,5 @@ html {
 
 .finished-todo {
   text-decoration: line-through;
+  color: lightgray;
 }

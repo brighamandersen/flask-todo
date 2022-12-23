@@ -19,18 +19,19 @@ class Todo(db.Model):
 
 # urls / views
 
-
 @app.route("/")
 def index():
-    todos = Todo.query.all()
+    todos = Todo.query.order_by(Todo.id.desc()).all()
     return render_template("index.html", todos=todos)
 
 
 @app.route("/add", methods=["POST"])
 def add():
-    todo = Todo(content=request.form["added-todo"], complete=False)
-    db.session.add(todo)
-    db.session.commit()
+    contentToAdd = request.form["added-todo"]
+    if contentToAdd:
+        todo = Todo(content=request.form["added-todo"], complete=False)
+        db.session.add(todo)
+        db.session.commit()
     return redirect(url_for("index"))
 
 
