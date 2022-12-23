@@ -12,10 +12,11 @@ input {
 /* Increase checkbox sizes */
 input[type='checkbox'] {
   transform: scale(1.5);
+  cursor: pointer;
 }
 
 html {
-  padding: 0.5rem;
+  padding: 3rem;
 }
 
 .a-no-underline {
@@ -56,10 +57,43 @@ html {
 .todo-item {
   padding: 10px;
   font-size: x-large;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.todo-check {
-  margin-inline: 10px;
+.todo-form {
+  border-bottom: 1px dotted gray;
+}
+
+.todo-form:last-child {
+  border: none;
+}
+
+.todo-item:hover {
+  background-color: #efefef;
+  border-radius: 8px;
+}
+
+.left,
+.right {
+  display: flex;
+  flex-direction: row;
+}
+
+.left {
+  flex: 4;
+  justify-content: flex-start;
+}
+
+.right {
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.todo-content {
+  margin-left: 20px;
 }
 
 .finished-todo {

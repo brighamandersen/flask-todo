@@ -9,6 +9,7 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///app.db"
 
 db = SQLAlchemy(app)
 
+# models
 
 class Todo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
