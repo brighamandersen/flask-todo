@@ -33,31 +33,23 @@
             <input 
               type="checkbox" 
               onchange="this.form.submit()"
-              class="todo-check"
               {{ "checked" if todo.complete }}
             />
             </form>
           </div>
           <div class="middle">
-            <span 
-              class="todo-content{{' finished-todo' if todo.complete}}"
-              id="todo-content-{{ todo.id }}"
-              ondblclick="enableEditMode('{{ todo.id }}')"
-            >
-              {{ todo.content|lower }}
-            </span>
             <form 
               action="{{ url_for("update", id=todo.id) }}"
               method="POST"
               class="edit-form input-container"
-              id="edit-form-{{ todo.id }}"
-              ondblclick="disableEditMode('{{ todo.id }}')"
             >
               <input 
                 type="text" 
                 name="edited-content" 
-                value="{{ todo.content|lower }}"
-                class="edit-input"
+                value="{{ todo.content }}"
+                class="edit-input{{' completed' if todo.complete}}"
+                id="edit-input-{{ todo.id }}"
+                onblur="clearInput(`{{ todo.id }}`, `{{ todo.content }}`)"
               >
             </form>
           </div>

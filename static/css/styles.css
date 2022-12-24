@@ -47,17 +47,9 @@ html {
   font-weight: 900;
 }
 
-/* Show if tabbed to a transparent icon via keyboard */
+.close-icon:hover,
 .close-icon:focus {
-  color: red;
-}
-
-.button {
-  text-decoration: none;
-  background-color: black;
-  color: white;
-  border: none;
-  padding: 0.5rem;
+  color: rgb(205, 0, 0);
 }
 
 .todo-add {
@@ -74,8 +66,7 @@ html {
 }
 
 .todo-item {
-  padding: 10px;
-  /* padding: 1rem; */
+  padding: 20px;
   font-size: x-large;
 }
 
@@ -90,7 +81,7 @@ html {
 .todo-item:hover,
 .add-input:hover,
 input[type='checkbox']:hover {
-  background-color: #efefef;
+  background-color: #f0f0f0;
 }
 
 .parent {
@@ -116,19 +107,15 @@ input[type='checkbox']:hover {
 
 .middle {
   flex-grow: 1;
-  margin-left: 1.5rem;
-  margin-right: 1.5rem;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .right {
   justify-content: flex-end;
 }
 
-.finished-todo {
+.completed {
   text-decoration: line-through;
   color: lightgray;
-}
-
-.edit-form {
-  display: none;
 }
