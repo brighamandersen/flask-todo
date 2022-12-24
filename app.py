@@ -1,5 +1,8 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
+import os
+
+os.environ['FLASK_ENV'] = 'development'
 
 app = Flask(__name__)
 
