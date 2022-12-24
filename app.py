@@ -39,6 +39,14 @@ def add():
     return redirect(url_for("index"))
 
 
+@app.route("/update/<id>", methods=["POST"])
+def update(id):
+    todo = Todo.query.get(id)
+    todo.content = request.form["edited-content"]
+    db.session.commit()
+    return redirect(url_for("index"))
+
+
 @app.route("/complete/<id>")
 def complete(id):
     todo = Todo.query.get(id)

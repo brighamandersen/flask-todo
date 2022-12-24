@@ -2,11 +2,17 @@
   font-family: 'Courier New', Courier, monospace;
 }
 
-input[type='text'] {
+.add-input {
   font-size: x-large;
   padding: 0.5rem;
   border: none;
   border-bottom: 2px solid black;
+}
+
+.edit-input {
+  font-size: x-large;
+  padding: 0.5rem;
+  border: none;
 }
 
 /* Increase checkbox sizes */
@@ -56,7 +62,11 @@ html {
 
 .todo-add {
   padding-bottom: 2rem;
-  position: sticky;
+}
+
+.input-container {
+  display: flex;
+  flex-grow: 1;
 }
 
 .input-container * {
@@ -65,19 +75,20 @@ html {
 
 .todo-item {
   padding: 10px;
+  /* padding: 1rem; */
   font-size: x-large;
 }
 
-.todo-form {
+.todo-item {
   border-bottom: 1px dotted gray;
 }
 
-.todo-form:last-child {
+.todo-item:last-child {
   border: none;
 }
 
 .todo-item:hover,
-input[type='text']:hover,
+.add-input:hover,
 input[type='checkbox']:hover {
   background-color: #efefef;
 }
@@ -89,6 +100,10 @@ input[type='checkbox']:hover {
   align-items: center;
 }
 
+.complete-form {
+  display: flex;
+}
+
 .left,
 .right {
   display: flex;
@@ -96,19 +111,24 @@ input[type='checkbox']:hover {
 }
 
 .left {
-  flex-grow: 1;
   justify-content: flex-start;
+}
+
+.middle {
+  flex-grow: 1;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
 }
 
 .right {
   justify-content: flex-end;
 }
 
-.todo-content {
-  margin-left: 20px;
-}
-
 .finished-todo {
   text-decoration: line-through;
   color: lightgray;
+}
+
+.edit-form {
+  display: none;
 }

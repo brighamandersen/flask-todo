@@ -12,30 +12,54 @@
   <body>
     <div class="todo-add">
       <form action="{{ url_for("add") }}" method="POST" class="parent">
-        <div class="left input-container">
-          <input type="text" name="added-todo" placeholder="add task to do today ..."/>
+        <div class="input-container">
+          <input 
+            type="text" 
+            name="added-todo" 
+            placeholder="add task to do today ..." 
+            class="add-input"
+          />
         </div>
       </form>
     </div>
     <div class="todo-list">
     	{% for todo in todos %}
-      <form 
-        action="{{ url_for("complete", id=todo.id) }}"
-        class="todo-form"
-      >
         <div class="parent todo-item">
           <div class="left">
+            <form 
+              action="{{ url_for("complete", id=todo.id) }}"
+              class="complete-form"
+            >
             <input 
               type="checkbox" 
               onchange="this.form.submit()"
               class="todo-check"
               {{ "checked" if todo.complete }}
             />
+            </form>
+          </div>
+          <div class="middle">
             <span 
-              class="todo-content {{'finished-todo' if todo.complete}}"
+              class="todo-content{{' finished-todo' if todo.complete}}"
+              id="todo-content-{{ todo.id }}"
+              ondblclick="enableEditMode('{{ todo.id }}')"
             >
               {{ todo.content|lower }}
             </span>
+            <form 
+              action="{{ url_for("update", id=todo.id) }}"
+              method="POST"
+              class="edit-form input-container"
+              id="edit-form-{{ todo.id }}"
+              ondblclick="disableEditMode('{{ todo.id }}')"
+            >
+              <input 
+                type="text" 
+                name="edited-content" 
+                value="{{ todo.content|lower }}"
+                class="edit-input"
+              >
+            </form>
           </div>
           <div class="right">
             <a 
@@ -46,8 +70,8 @@
             </a>
           </div>
         </div>
-      </form>
       {% endfor %}
     </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
   </body>
 </html>
