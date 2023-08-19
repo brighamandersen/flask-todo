@@ -2,9 +2,12 @@ from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 import os
 
-os.environ['FLASK_ENV'] = 'development'
-
 app = Flask(__name__)
+
+if os.environ.get('FLASK_DEBUG') == '1':
+    app.config['DEBUG'] = True
+else:
+    app.config['DEBUG'] = False
 
 # database
 
