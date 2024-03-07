@@ -1,4 +1,12 @@
-# Command to run gunicorn
+# flask-todo
+
+## Run locally
+
+```
+python app.py
+```
+
+## Command to run gunicorn
 
 `python3 -m gunicorn -w 1 --bind 0.0.0.0:5001 wsgi:app --daemon`
 
