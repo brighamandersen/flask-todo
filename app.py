@@ -4,19 +4,14 @@ import os
 
 app = Flask(__name__)
 
-if os.environ.get('FLASK_DEBUG') == '1':
-    app.config['DEBUG'] = True
-else:
-    app.config['DEBUG'] = False
-
-# database
+# Database
 
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///app.db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
-# models
+# Models
 
 class Todo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -24,7 +19,7 @@ class Todo(db.Model):
     complete = db.Column(db.Boolean)
 
 
-# urls / views
+# URLs / Views
 
 @app.route("/")
 def index():
@@ -66,5 +61,5 @@ def delete(id):
     return redirect(url_for("index"))
 
 
-if __name__ == "__main__":
-    app.run()
+if __name__ == '__main__':
+    app.run(debug=True)
