@@ -3,6 +3,12 @@
 ## Run locally
 
 ```
+touch app.db
+```
+
+> I don't have a script for it yet, but you'll also have to initialize the database before running the server.
+
+```
 python app.py
 ```
 
