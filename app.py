@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
-import os
 
 app = Flask(__name__)
 
@@ -12,6 +11,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 # Models
+
 
 class Todo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -62,4 +62,5 @@ def delete(id):
 
 
 if __name__ == '__main__':
+    db.create_all()  # Create db and tables if they don't exist
     app.run(debug=True)
