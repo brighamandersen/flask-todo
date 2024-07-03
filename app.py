@@ -62,5 +62,6 @@ def delete(id):
 
 
 if __name__ == '__main__':
-    db.create_all()  # Create db and tables if they don't exist
+    with app.app_context():
+        db.create_all()  # Create db and tables if they don't exist
     app.run(debug=True)
