@@ -1,0 +1,15 @@
+[Unit]
+Description=flask-todo
+After=network.target
+
+[Service]
+User=www-data
+Group=www-data
+WorkingDirectory=/home/brig/code/flask-todo
+ExecStart=/home/brig/code/flask-todo/.venv/bin/python3 -m gunicorn -w 1 --bind 0.0.0.0:3004 wsgi:app
+Restart=always
+RestartSec=5
+Environment="PATH=/home/brig/code/flask-todo/.venv/bin:$PATH"
+
+[Install]
+WantedBy=multi-user.target
