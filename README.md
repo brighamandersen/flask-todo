@@ -53,5 +53,5 @@ python app.py
 
 ```
 cd path/to/repo
-./infra/deploy.sh
+./deploy/deploy.sh
 ```
