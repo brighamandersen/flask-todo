@@ -3,9 +3,9 @@ set -euo pipefail
 
 echo "Deploying flask-todo"
 
-sudo ln -sf /home/brig/code/flask-todo/deploy/systemd/flask-todo.service /etc/systemd/system/flask-todo.service
+sudo ln -sf /home/brig/code/flask-todo/deploy/systemd.service /etc/systemd/system/flask-todo.service
 
-sudo ln -sf /home/brig/code/flask-todo/deploy/nginx/flask-todo.conf /etc/nginx/conf.d/flask-todo.conf
+sudo ln -sf /home/brig/code/flask-todo/deploy/nginx.conf /etc/nginx/conf.d/flask-todo.conf
 
 sudo systemctl daemon-reload
 sudo systemctl enable flask-todo.service
