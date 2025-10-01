@@ -3,4 +3,3 @@
 .vscode
 .DS_Store
 app.db
-pm2.log
