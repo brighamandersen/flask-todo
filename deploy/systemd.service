@@ -5,8 +5,8 @@ After=network.target
 [Service]
 User=brig
 Group=brig
-WorkingDirectory=/home/brig/code/flask-todo
-ExecStart=/home/brig/code/flask-todo/.venv/bin/python3 -m gunicorn -w 1 --bind 0.0.0.0:3003 wsgi:app
+WorkingDirectory=/home/brig/dev/flask-todo
+ExecStart=/home/brig/dev/flask-todo/.venv/bin/python3 -m gunicorn -w 1 --bind 0.0.0.0:3003 wsgi:app
 Restart=always
 RestartSec=5
 
